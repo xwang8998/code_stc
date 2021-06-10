@@ -1,0 +1,233 @@
+C51 COMPILER V9.51   IIC_SMEC98SP                                                          04/18/2019 19:46:44 PAGE 1   
+
+
+C51 COMPILER V9.51, COMPILATION OF MODULE IIC_SMEC98SP
+OBJECT MODULE PLACED IN .\OBJ\iic_smec98sp.obj
+COMPILER INVOKED BY: d:\Keil_v5\C51\BIN\C51.EXE SMEC98SP\Source\iic_smec98sp.c LARGE BROWSE INCDIR(.\SMEC98SP\Header) DE
+                    -BUG OBJECTEXTEND PRINT(.\LST\iic_smec98sp.lst) OBJECT(.\OBJ\iic_smec98sp.obj)
+
+line level    source
+
+   1          //COPYRIGHT (c) 2008-2015       Sinormous Technology
+   2          //Author:陈文
+   3          //如有bug，请联系：koks98@tom.com
+   4          //QQ:26600347
+   5          
+   6          #include <iic_smec98sp.h>
+   7          #include <STC15F2K60S2.H>
+   8          //采用模拟IIC方式通讯
+   9          sbit    IIC_SCL     =P3^2;                      //定义IIC SCL管脚
+  10          sbit    IIC_SDA     =P3^3;                      //定义IIC SDA管脚，
+  11          sbit    IO_INOUT    =P3^4;                      //定义IIC SDA管脚，
+  12          #define HIGH    1
+  13          #define LOW             0
+  14          #define IIC_NOACK 1
+  15          #define IIC_ACK 0
+  16          #define IIC_DELAYTIME 5                 //IIC通讯速率大约100K
+  17          void IIC_Delayus(unsigned int n);
+  18          /******************************************************************************************
+  19          /*延时us函数22.1184M  1T
+  20          /******************************************************************************************/
+  21          void IIC_Delayus(unsigned int n)
+  22          {
+  23   1              unsigned char i;
+  24   1              for(;n>0;n--)
+  25   1              {
+  26   2                      i = 1;
+  27   2              }       
+  28   1      }
+  29          void    IIC_SetSDA(unsigned char level)
+  30          {
+  31   1              if(level == HIGH)
+  32   1              {
+  33   2                      IIC_SDA = 1;
+  34   2              }else
+  35   1              {
+  36   2                      IIC_SDA = 0;
+  37   2              }
+  38   1      }
+  39          void    IIC_SetSCL(unsigned char level)
+  40          {
+  41   1              if(level == HIGH)
+  42   1              {
+  43   2                      IIC_SCL = 1;
+  44   2              }else
+  45   1              {
+  46   2                      IIC_SCL = 0;
+  47   2              }
+  48   1      }
+  49          void SetSDAto_InputMode(void)
+  50          {
+  51   1              //根据芯片手册配置
+  52   1              IIC_SDA = 1;                    //设为输入
+  53   1      }
+  54          void SetSDAto_OutputMode(void)
+C51 COMPILER V9.51   IIC_SMEC98SP                                                          04/18/2019 19:46:44 PAGE 2   
+
+  55          {
+  56   1              //根据芯片手册配置
+  57   1              //本单片机不用设置可直接输出
+  58   1      }
+  59          
+  60          void   IIC_Start(void)
+  61          {
+  62   1              SetSDAto_OutputMode();                  //SDA设为输出模式
+  63   1              IIC_SetSDA(HIGH);
+  64   1              IIC_SetSCL(HIGH);
+  65   1              IIC_Delayus(IIC_DELAYTIME);                     
+  66   1              IIC_SetSDA(LOW);
+  67   1              IIC_Delayus(IIC_DELAYTIME);
+  68   1              IIC_SetSCL(LOW);
+  69   1      }
+  70          
+  71          void   IIC_Stop(void)
+  72          {       
+  73   1              SetSDAto_OutputMode();                  //SDA设为输出模式
+  74   1              IIC_SetSDA(LOW);
+  75   1              IIC_SetSCL(HIGH);
+  76   1              IIC_Delayus(IIC_DELAYTIME);
+  77   1              IIC_SetSDA(HIGH);
+  78   1              IIC_Delayus(IIC_DELAYTIME);
+  79   1      }
+  80          unsigned char IIC_GetSdaStus(void)
+  81          {
+  82   1              unsigned char tmp;
+  83   1      
+  84   1              if(IIC_SDA == 1)        
+  85   1                      tmp=1;
+  86   1              else 
+  87   1                      tmp=0;
+  88   1              return tmp;
+  89   1      }
+  90          
+  91          #define ACKCHECKTIME 600
+  92          unsigned char  IIC_Send(unsigned char IIC_data)
+  93          {
+  94   1              unsigned char Ack;
+  95   1              unsigned int AckLoop;
+  96   1              unsigned char i;
+  97   1              SetSDAto_OutputMode();                  //SDA设为输出模式
+  98   1              for(i=0;i<8;i++)
+  99   1              {
+ 100   2                      IIC_SetSCL(LOW);
+ 101   2                      IIC_Delayus(IIC_DELAYTIME);
+ 102   2                      IIC_SetSDA((IIC_data & 0x80)?1:0);
+ 103   2                      IIC_Delayus(IIC_DELAYTIME);
+ 104   2                      IIC_SetSCL(HIGH);
+ 105   2                      IIC_Delayus(IIC_DELAYTIME);
+ 106   2                      IIC_Delayus(IIC_DELAYTIME);
+ 107   2                      IIC_data<<= 1;
+ 108   2              }
+ 109   1              IIC_SetSCL(LOW);
+ 110   1              IIC_Delayus(IIC_DELAYTIME);
+ 111   1              IIC_Delayus(IIC_DELAYTIME);
+ 112   1              IIC_SetSCL(HIGH);
+ 113   1              IIC_Delayus(IIC_DELAYTIME);
+ 114   1              IIC_Delayus(IIC_DELAYTIME);
+ 115   1              Ack = IIC_NOACK;
+ 116   1              SetSDAto_InputMode();                   //SDA设为输入模式
+C51 COMPILER V9.51   IIC_SMEC98SP                                                          04/18/2019 19:46:44 PAGE 3   
+
+ 117   1              for(AckLoop=0;AckLoop<ACKCHECKTIME;AckLoop++) //260us
+ 118   1              {
+ 119   2                      if(!IIC_GetSdaStus())
+ 120   2                      {
+ 121   3                              Ack = IIC_ACK;
+ 122   3                              break;
+ 123   3                      }
+ 124   2                      IIC_Delayus(IIC_DELAYTIME);
+ 125   2              }
+ 126   1              IIC_SetSCL(LOW);
+ 127   1              return Ack;                     //return success=0 / failure=1
+ 128   1      }
+ 129          
+ 130          unsigned char IIC_Read(unsigned char bACK)
+ 131          {
+ 132   1              unsigned char Data;
+ 133   1              unsigned char i;
+ 134   1              Data = 0;
+ 135   1              SetSDAto_InputMode();                   //SDA设为输入模式
+ 136   1              for(i=0;i<8;i++)
+ 137   1              {
+ 138   2                      Data <<= 1;
+ 139   2                      IIC_SetSCL(LOW);
+ 140   2                      IIC_Delayus(IIC_DELAYTIME);
+ 141   2                      IIC_Delayus(IIC_DELAYTIME);
+ 142   2                      IIC_Delayus(IIC_DELAYTIME);
+ 143   2                      IIC_SetSCL(HIGH);
+ 144   2                      IIC_Delayus(IIC_DELAYTIME);
+ 145   2                      IIC_Delayus(IIC_DELAYTIME);
+ 146   2                      if(IIC_GetSdaStus())
+ 147   2                              Data |= 1;
+ 148   2                      else
+ 149   2                              Data &= 0xfe;
+ 150   2              }
+ 151   1              IIC_SetSCL(LOW);
+ 152   1              SetSDAto_OutputMode();                  //SDA设为输出模式       
+ 153   1              IIC_Delayus(IIC_DELAYTIME);   
+ 154   1              IIC_SetSDA(bACK);
+ 155   1              IIC_Delayus(IIC_DELAYTIME);
+ 156   1              IIC_SetSCL(HIGH);
+ 157   1              IIC_Delayus(IIC_DELAYTIME);
+ 158   1              IIC_Delayus(IIC_DELAYTIME);
+ 159   1              IIC_SetSCL(LOW);
+ 160   1              return Data;
+ 161   1      }
+ 162          
+ 163          
+ 164          bit IIC_ReadWithAddr(unsigned char addr, unsigned char *buf, unsigned char len)
+ 165          {
+ 166   1              unsigned char i;
+ 167   1              i = 10;
+ 168   1          while (i) 
+ 169   1              {
+ 170   2                      IIC_Start();
+ 171   2              if (IIC_Send(addr) == IIC_ACK) break;
+ 172   2              if (--i == 0) return IIC_NOACK;
+ 173   2          }
+ 174   1              for(i = 0; i < len -1 ; i++)
+ 175   1              {
+ 176   2                      buf[i] = IIC_Read(IIC_ACK);
+ 177   2              }
+ 178   1              buf[i] = IIC_Read(IIC_NOACK);
+C51 COMPILER V9.51   IIC_SMEC98SP                                                          04/18/2019 19:46:44 PAGE 4   
+
+ 179   1              IIC_Stop();
+ 180   1              return IIC_ACK;
+ 181   1      }
+ 182          
+ 183          bit IIC_WriteWithAddr(unsigned char addr, unsigned char *buf, unsigned char len)
+ 184          {
+ 185   1              unsigned char i;
+ 186   1              i = 10;
+ 187   1          while (i) 
+ 188   1              {
+ 189   2                      IIC_Start();
+ 190   2              if (IIC_Send(addr) == IIC_ACK) break;
+ 191   2              if (--i == 0) return IIC_NOACK;
+ 192   2          }
+ 193   1              for(i = 0; i < len; i++)
+ 194   1              {
+ 195   2                      if(IIC_Send(buf[i]))
+ 196   2                              return IIC_NOACK;
+ 197   2              }
+ 198   1              IIC_Delayus(IIC_DELAYTIME);
+ 199   1              IIC_Delayus(IIC_DELAYTIME);
+ 200   1              IIC_Stop();
+ 201   1              return IIC_ACK;
+ 202   1      }
+ 203          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    545    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----      13
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

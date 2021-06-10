@@ -1,0 +1,4 @@
+".\OBJ\main.obj",
+".\OBJ\MONI_I2C_A.obj" 
+TO ".\OBJ\SMEC98SPfor8051" 
+PRINT(".\LST\SMEC98SPfor8051.m51")

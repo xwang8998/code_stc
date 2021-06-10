@@ -1,0 +1,1 @@
+1,STC¼ÓÃÜi2c +FPGA i2c    2¸öi2c³ÌÐò

@@ -1,0 +1,1425 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+F:\secret\code_stc\SMEC98SPfor8051_accu-n - uart\SMEC98SPfor8051.uvproj
+Project File Date:  04/08/2020
+
+<h2>Output:</h2>
+
+InitXmlModel(): using folder 'd:\Keil_v5\ARM\PACK'
+Parsing RTE Files ... 
+failed.
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(547): warning C280: 'len': unreferenced local variable
+main.c(547): warning C280: 'message': unreferenced local variable
+main.c(555): warning C280: 'ret': unreferenced local variable
+main.c(555): warning C280: 'i': unreferenced local variable
+main.c(555): warning C280: 'flag': unreferenced local variable
+main.c(557): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(117): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=17.5 xdata=81 code=2560
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(547): warning C280: 'len': unreferenced local variable
+main.c(547): warning C280: 'message': unreferenced local variable
+main.c(555): warning C280: 'ret': unreferenced local variable
+main.c(555): warning C280: 'i': unreferenced local variable
+main.c(555): warning C280: 'flag': unreferenced local variable
+main.c(557): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(117): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=17.5 xdata=81 code=2560
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(547): warning C280: 'len': unreferenced local variable
+main.c(547): warning C280: 'message': unreferenced local variable
+main.c(555): warning C280: 'ret': unreferenced local variable
+main.c(555): warning C280: 'i': unreferenced local variable
+main.c(555): warning C280: 'flag': unreferenced local variable
+main.c(557): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(117): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2226
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(547): warning C280: 'len': unreferenced local variable
+main.c(547): warning C280: 'message': unreferenced local variable
+main.c(555): warning C280: 'ret': unreferenced local variable
+main.c(555): warning C280: 'i': unreferenced local variable
+main.c(555): warning C280: 'flag': unreferenced local variable
+main.c(557): warning C280: 'getreset_ok': unreferenced local variable
+main.c(657): error C249: 'DATA': SEGMENT TOO LARGE
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(117): warning C280: 'j': unreferenced local variable
+Target not created
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(547): warning C280: 'len': unreferenced local variable
+main.c(547): warning C280: 'message': unreferenced local variable
+main.c(555): warning C280: 'ret': unreferenced local variable
+main.c(555): warning C280: 'i': unreferenced local variable
+main.c(555): warning C280: 'flag': unreferenced local variable
+main.c(557): warning C280: 'getreset_ok': unreferenced local variable
+main.c(657): error C249: 'DATA': SEGMENT TOO LARGE
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(117): warning C280: 'j': unreferenced local variable
+Target not created
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(547): warning C280: 'len': unreferenced local variable
+main.c(547): warning C280: 'message': unreferenced local variable
+main.c(555): warning C280: 'ret': unreferenced local variable
+main.c(555): warning C280: 'i': unreferenced local variable
+main.c(555): warning C280: 'flag': unreferenced local variable
+main.c(557): warning C280: 'getreset_ok': unreferenced local variable
+main.c(657): error C249: 'DATA': SEGMENT TOO LARGE
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(117): warning C280: 'j': unreferenced local variable
+Target not created
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(547): warning C280: 'len': unreferenced local variable
+main.c(547): warning C280: 'message': unreferenced local variable
+main.c(555): warning C280: 'ret': unreferenced local variable
+main.c(555): warning C280: 'i': unreferenced local variable
+main.c(555): warning C280: 'flag': unreferenced local variable
+main.c(557): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(117): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=17.5 xdata=177 code=2572
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(547): warning C280: 'len': unreferenced local variable
+main.c(547): warning C280: 'message': unreferenced local variable
+main.c(555): warning C280: 'ret': unreferenced local variable
+main.c(555): warning C280: 'i': unreferenced local variable
+main.c(555): warning C280: 'flag': unreferenced local variable
+main.c(557): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(117): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2226
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(547): warning C280: 'len': unreferenced local variable
+main.c(547): warning C280: 'message': unreferenced local variable
+main.c(555): warning C280: 'ret': unreferenced local variable
+main.c(555): warning C280: 'i': unreferenced local variable
+main.c(555): warning C280: 'flag': unreferenced local variable
+main.c(557): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(117): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2226
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(547): warning C280: 'len': unreferenced local variable
+main.c(547): warning C280: 'message': unreferenced local variable
+main.c(555): warning C280: 'ret': unreferenced local variable
+main.c(555): warning C280: 'i': unreferenced local variable
+main.c(555): warning C280: 'flag': unreferenced local variable
+main.c(557): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(117): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2226
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(547): warning C280: 'len': unreferenced local variable
+main.c(547): warning C280: 'message': unreferenced local variable
+main.c(555): warning C280: 'ret': unreferenced local variable
+main.c(555): warning C280: 'i': unreferenced local variable
+main.c(555): warning C280: 'flag': unreferenced local variable
+main.c(557): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(117): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2226
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(547): warning C280: 'len': unreferenced local variable
+main.c(547): warning C280: 'message': unreferenced local variable
+main.c(555): warning C280: 'ret': unreferenced local variable
+main.c(555): warning C280: 'i': unreferenced local variable
+main.c(555): warning C280: 'flag': unreferenced local variable
+main.c(557): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(117): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2233
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(547): warning C280: 'len': unreferenced local variable
+main.c(547): warning C280: 'message': unreferenced local variable
+main.c(555): warning C280: 'ret': unreferenced local variable
+main.c(555): warning C280: 'i': unreferenced local variable
+main.c(555): warning C280: 'flag': unreferenced local variable
+main.c(557): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(117): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2231
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(547): warning C280: 'len': unreferenced local variable
+main.c(547): warning C280: 'message': unreferenced local variable
+main.c(555): warning C280: 'ret': unreferenced local variable
+main.c(555): warning C280: 'i': unreferenced local variable
+main.c(555): warning C280: 'flag': unreferenced local variable
+main.c(557): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(117): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2231
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(547): warning C280: 'len': unreferenced local variable
+main.c(547): warning C280: 'message': unreferenced local variable
+main.c(555): warning C280: 'ret': unreferenced local variable
+main.c(555): warning C280: 'i': unreferenced local variable
+main.c(555): warning C280: 'flag': unreferenced local variable
+main.c(557): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(117): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2231
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(547): warning C280: 'len': unreferenced local variable
+main.c(547): warning C280: 'message': unreferenced local variable
+main.c(555): warning C280: 'ret': unreferenced local variable
+main.c(555): warning C280: 'i': unreferenced local variable
+main.c(555): warning C280: 'flag': unreferenced local variable
+main.c(557): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(117): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2233
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(547): warning C280: 'len': unreferenced local variable
+main.c(547): warning C280: 'message': unreferenced local variable
+main.c(555): warning C280: 'ret': unreferenced local variable
+main.c(555): warning C280: 'i': unreferenced local variable
+main.c(555): warning C280: 'flag': unreferenced local variable
+main.c(557): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(117): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2236
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(547): warning C280: 'len': unreferenced local variable
+main.c(547): warning C280: 'message': unreferenced local variable
+main.c(555): warning C280: 'ret': unreferenced local variable
+main.c(555): warning C280: 'i': unreferenced local variable
+main.c(555): warning C280: 'flag': unreferenced local variable
+main.c(557): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(117): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2239
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(547): warning C280: 'len': unreferenced local variable
+main.c(547): warning C280: 'message': unreferenced local variable
+main.c(555): warning C280: 'ret': unreferenced local variable
+main.c(555): warning C280: 'i': unreferenced local variable
+main.c(555): warning C280: 'flag': unreferenced local variable
+main.c(557): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(117): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2239
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(548): warning C280: 'len': unreferenced local variable
+main.c(548): warning C280: 'message': unreferenced local variable
+main.c(556): warning C280: 'ret': unreferenced local variable
+main.c(556): warning C280: 'i': unreferenced local variable
+main.c(556): warning C280: 'flag': unreferenced local variable
+main.c(558): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(117): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2246
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(548): warning C280: 'len': unreferenced local variable
+main.c(548): warning C280: 'message': unreferenced local variable
+main.c(556): warning C280: 'ret': unreferenced local variable
+main.c(556): warning C280: 'i': unreferenced local variable
+main.c(556): warning C280: 'flag': unreferenced local variable
+main.c(558): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(117): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2239
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(548): warning C280: 'len': unreferenced local variable
+main.c(548): warning C280: 'message': unreferenced local variable
+main.c(556): warning C280: 'ret': unreferenced local variable
+main.c(556): warning C280: 'i': unreferenced local variable
+main.c(556): warning C280: 'flag': unreferenced local variable
+main.c(558): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(117): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2246
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(548): warning C280: 'len': unreferenced local variable
+main.c(548): warning C280: 'message': unreferenced local variable
+main.c(556): warning C280: 'ret': unreferenced local variable
+main.c(556): warning C280: 'i': unreferenced local variable
+main.c(556): warning C280: 'flag': unreferenced local variable
+main.c(558): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(119): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2251
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(548): warning C280: 'len': unreferenced local variable
+main.c(548): warning C280: 'message': unreferenced local variable
+main.c(556): warning C280: 'ret': unreferenced local variable
+main.c(556): warning C280: 'i': unreferenced local variable
+main.c(556): warning C280: 'flag': unreferenced local variable
+main.c(558): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(119): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2251
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(549): warning C280: 'len': unreferenced local variable
+main.c(549): warning C280: 'message': unreferenced local variable
+main.c(557): warning C280: 'ret': unreferenced local variable
+main.c(557): warning C280: 'i': unreferenced local variable
+main.c(557): warning C280: 'flag': unreferenced local variable
+main.c(559): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(119): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2253
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(549): warning C280: 'len': unreferenced local variable
+main.c(549): warning C280: 'message': unreferenced local variable
+main.c(557): warning C280: 'ret': unreferenced local variable
+main.c(557): warning C280: 'i': unreferenced local variable
+main.c(557): warning C280: 'flag': unreferenced local variable
+main.c(559): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(119): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2251
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(549): warning C280: 'len': unreferenced local variable
+main.c(549): warning C280: 'message': unreferenced local variable
+main.c(557): warning C280: 'ret': unreferenced local variable
+main.c(557): warning C280: 'i': unreferenced local variable
+main.c(557): warning C280: 'flag': unreferenced local variable
+main.c(559): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(119): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2251
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(551): warning C280: 'len': unreferenced local variable
+main.c(551): warning C280: 'message': unreferenced local variable
+main.c(559): warning C280: 'ret': unreferenced local variable
+main.c(559): warning C280: 'i': unreferenced local variable
+main.c(559): warning C280: 'flag': unreferenced local variable
+main.c(561): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(119): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2253
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+main.c(568): warning C280: 'len': unreferenced local variable
+main.c(568): warning C280: 'message': unreferenced local variable
+main.c(576): warning C280: 'ret': unreferenced local variable
+main.c(576): warning C280: 'i': unreferenced local variable
+main.c(576): warning C280: 'flag': unreferenced local variable
+main.c(578): warning C280: 'getreset_ok': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2253
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 10 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(568): warning C280: 'len': unreferenced local variable
+main.c(568): warning C280: 'message': unreferenced local variable
+main.c(576): warning C280: 'ret': unreferenced local variable
+main.c(576): warning C280: 'i': unreferenced local variable
+main.c(576): warning C280: 'flag': unreferenced local variable
+main.c(578): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(119): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2253
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(568): warning C280: 'len': unreferenced local variable
+main.c(568): warning C280: 'message': unreferenced local variable
+main.c(576): warning C280: 'ret': unreferenced local variable
+main.c(576): warning C280: 'i': unreferenced local variable
+main.c(576): warning C280: 'flag': unreferenced local variable
+main.c(578): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(119): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2253
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(568): warning C280: 'len': unreferenced local variable
+main.c(568): warning C280: 'message': unreferenced local variable
+main.c(576): warning C280: 'ret': unreferenced local variable
+main.c(576): warning C280: 'i': unreferenced local variable
+main.c(576): warning C280: 'flag': unreferenced local variable
+main.c(578): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(119): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2253
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(568): warning C280: 'len': unreferenced local variable
+main.c(568): warning C280: 'message': unreferenced local variable
+main.c(576): warning C280: 'ret': unreferenced local variable
+main.c(576): warning C280: 'i': unreferenced local variable
+main.c(576): warning C280: 'flag': unreferenced local variable
+main.c(578): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(119): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2253
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(568): warning C280: 'len': unreferenced local variable
+main.c(568): warning C280: 'message': unreferenced local variable
+main.c(576): warning C280: 'ret': unreferenced local variable
+main.c(576): warning C280: 'i': unreferenced local variable
+main.c(576): warning C280: 'flag': unreferenced local variable
+main.c(578): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(119): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2253
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(568): warning C280: 'len': unreferenced local variable
+main.c(568): warning C280: 'message': unreferenced local variable
+main.c(576): warning C280: 'ret': unreferenced local variable
+main.c(576): warning C280: 'i': unreferenced local variable
+main.c(576): warning C280: 'flag': unreferenced local variable
+main.c(578): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(119): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2253
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(568): warning C280: 'len': unreferenced local variable
+main.c(568): warning C280: 'message': unreferenced local variable
+main.c(576): warning C280: 'ret': unreferenced local variable
+main.c(576): warning C280: 'i': unreferenced local variable
+main.c(576): warning C280: 'flag': unreferenced local variable
+main.c(578): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(119): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2281
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(568): warning C280: 'len': unreferenced local variable
+main.c(568): warning C280: 'message': unreferenced local variable
+main.c(576): warning C280: 'ret': unreferenced local variable
+main.c(576): warning C280: 'i': unreferenced local variable
+main.c(576): warning C280: 'flag': unreferenced local variable
+main.c(578): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(119): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=90.5 xdata=0 code=2281
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(568): warning C280: 'len': unreferenced local variable
+main.c(568): warning C280: 'message': unreferenced local variable
+main.c(576): warning C280: 'ret': unreferenced local variable
+main.c(576): warning C280: 'i': unreferenced local variable
+main.c(576): warning C280: 'flag': unreferenced local variable
+main.c(578): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(119): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_CRPA?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=100.5 xdata=0 code=2206
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 12 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(568): warning C280: 'len': unreferenced local variable
+main.c(568): warning C280: 'message': unreferenced local variable
+main.c(576): warning C280: 'ret': unreferenced local variable
+main.c(576): warning C280: 'i': unreferenced local variable
+main.c(576): warning C280: 'flag': unreferenced local variable
+main.c(578): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(119): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_READ_PAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_CRPA?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=104.5 xdata=0 code=2192
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 13 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(568): warning C280: 'len': unreferenced local variable
+main.c(568): warning C280: 'message': unreferenced local variable
+main.c(576): warning C280: 'ret': unreferenced local variable
+main.c(576): warning C280: 'i': unreferenced local variable
+main.c(576): warning C280: 'flag': unreferenced local variable
+main.c(578): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(119): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_READ_PAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_CRPA?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=104.5 xdata=0 code=2185
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 13 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(568): warning C280: 'len': unreferenced local variable
+main.c(568): warning C280: 'message': unreferenced local variable
+main.c(576): warning C280: 'ret': unreferenced local variable
+main.c(576): warning C280: 'i': unreferenced local variable
+main.c(576): warning C280: 'flag': unreferenced local variable
+main.c(578): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(119): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_READ_PAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_CRPA?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=104.5 xdata=0 code=2192
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 13 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(568): warning C280: 'len': unreferenced local variable
+main.c(568): warning C280: 'message': unreferenced local variable
+main.c(576): warning C280: 'ret': unreferenced local variable
+main.c(576): warning C280: 'i': unreferenced local variable
+main.c(576): warning C280: 'flag': unreferenced local variable
+main.c(578): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(120): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_READ_PAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_CRPA?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=104.5 xdata=0 code=2198
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 13 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(568): warning C280: 'len': unreferenced local variable
+main.c(568): warning C280: 'message': unreferenced local variable
+main.c(576): warning C280: 'ret': unreferenced local variable
+main.c(576): warning C280: 'i': unreferenced local variable
+main.c(576): warning C280: 'flag': unreferenced local variable
+main.c(578): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(120): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_READ_PAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_CRPA?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=104.5 xdata=0 code=2212
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 13 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(568): warning C280: 'len': unreferenced local variable
+main.c(568): warning C280: 'message': unreferenced local variable
+main.c(576): warning C280: 'ret': unreferenced local variable
+main.c(576): warning C280: 'i': unreferenced local variable
+main.c(576): warning C280: 'flag': unreferenced local variable
+main.c(578): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(120): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_READ_PAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_CRPA?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=104.5 xdata=0 code=2205
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 13 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(568): warning C280: 'len': unreferenced local variable
+main.c(568): warning C280: 'message': unreferenced local variable
+main.c(576): warning C280: 'ret': unreferenced local variable
+main.c(576): warning C280: 'i': unreferenced local variable
+main.c(576): warning C280: 'flag': unreferenced local variable
+main.c(578): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(120): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_READ_PAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_CRPA?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=104.5 xdata=0 code=2226
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 13 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(568): warning C280: 'len': unreferenced local variable
+main.c(568): warning C280: 'message': unreferenced local variable
+main.c(576): warning C280: 'ret': unreferenced local variable
+main.c(576): warning C280: 'i': unreferenced local variable
+main.c(576): warning C280: 'flag': unreferenced local variable
+main.c(578): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(120): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_READ_PAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_CRPA?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=104.5 xdata=0 code=2231
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 13 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(568): warning C280: 'len': unreferenced local variable
+main.c(568): warning C280: 'message': unreferenced local variable
+main.c(576): warning C280: 'ret': unreferenced local variable
+main.c(576): warning C280: 'i': unreferenced local variable
+main.c(576): warning C280: 'flag': unreferenced local variable
+main.c(578): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(120): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_READ_PAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_CRPA?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=104.5 xdata=0 code=2226
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 13 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(568): warning C280: 'len': unreferenced local variable
+main.c(568): warning C280: 'message': unreferenced local variable
+main.c(576): warning C280: 'ret': unreferenced local variable
+main.c(576): warning C280: 'i': unreferenced local variable
+main.c(576): warning C280: 'flag': unreferenced local variable
+main.c(578): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(120): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_READ_PAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_CRPA?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=104.5 xdata=0 code=2226
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 13 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(568): warning C280: 'len': unreferenced local variable
+main.c(568): warning C280: 'message': unreferenced local variable
+main.c(576): warning C280: 'ret': unreferenced local variable
+main.c(576): warning C280: 'i': unreferenced local variable
+main.c(576): warning C280: 'flag': unreferenced local variable
+main.c(578): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(120): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_READ_PAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_CRPA?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+*** ERROR L107: ADDRESS SPACE OVERFLOW
+    SPACE:   DATA    
+    SEGMENT: ?DT?_IIC_READWITHADDR?MAIN
+    LENGTH:  0006H
+*** ERROR L107: ADDRESS SPACE OVERFLOW
+    SPACE:   DATA    
+    SEGMENT: ?DT?_OW_READ_PAGE?MAIN
+    LENGTH:  0004H
+*** ERROR L107: ADDRESS SPACE OVERFLOW
+    SPACE:   DATA    
+    SEGMENT: ?DT?_OW_WRITE_SHA3_256?MAIN
+    LENGTH:  0004H
+*** ERROR L105: PUBLIC REFERS TO IGNORED SEGMENT
+    SYMBOL:  ?_IIC_READWITHADDR?BYTE
+    SEGMENT: ?DT?_IIC_READWITHADDR?MAIN
+Program Size: data=140.5 xdata=0 code=2262
+Target not created
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(568): warning C280: 'len': unreferenced local variable
+main.c(568): warning C280: 'message': unreferenced local variable
+main.c(576): warning C280: 'ret': unreferenced local variable
+main.c(576): warning C280: 'i': unreferenced local variable
+main.c(576): warning C280: 'flag': unreferenced local variable
+main.c(578): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(120): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_READ_PAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_CRPA?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=110.5 xdata=0 code=2232
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 13 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(568): warning C280: 'len': unreferenced local variable
+main.c(568): warning C280: 'message': unreferenced local variable
+main.c(576): warning C280: 'ret': unreferenced local variable
+main.c(576): warning C280: 'i': unreferenced local variable
+main.c(576): warning C280: 'flag': unreferenced local variable
+main.c(578): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(120): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_READWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IIC_WRITEWITHADDR?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_READ_PAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_CRPA?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=115.5 xdata=0 code=2237
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 13 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(569): warning C280: 'len': unreferenced local variable
+main.c(569): warning C280: 'message': unreferenced local variable
+main.c(577): warning C280: 'ret': unreferenced local variable
+main.c(577): warning C280: 'i': unreferenced local variable
+main.c(577): warning C280: 'flag': unreferenced local variable
+main.c(579): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(120): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_READ_PAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_CRPA?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=102.5 xdata=0 code=1657
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(569): warning C280: 'len': unreferenced local variable
+main.c(569): warning C280: 'message': unreferenced local variable
+main.c(577): warning C280: 'ret': unreferenced local variable
+main.c(577): warning C280: 'i': unreferenced local variable
+main.c(577): warning C280: 'flag': unreferenced local variable
+main.c(579): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(120): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_READ_PAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_CRPA?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+*** ERROR L107: ADDRESS SPACE OVERFLOW
+    SPACE:   DATA    
+    SEGMENT: ?DT?_OW_WRITE_SHA3_256?MAIN
+    LENGTH:  0004H
+Program Size: data=127.5 xdata=0 code=1682
+Target not created
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(569): warning C280: 'len': unreferenced local variable
+main.c(569): warning C280: 'message': unreferenced local variable
+main.c(661): error C202: 'PG0_data': undefined identifier
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(120): warning C280: 'j': unreferenced local variable
+Target not created
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(569): warning C280: 'len': unreferenced local variable
+main.c(569): warning C280: 'message': unreferenced local variable
+main.c(577): warning C280: 'ret': unreferenced local variable
+main.c(577): warning C280: 'i': unreferenced local variable
+main.c(577): warning C280: 'flag': unreferenced local variable
+main.c(579): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(120): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_READ_PAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_CRPA?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+*** ERROR L107: ADDRESS SPACE OVERFLOW
+    SPACE:   DATA    
+    SEGMENT: ?DT?_OW_WRITE_SHA3_256?MAIN
+    LENGTH:  0004H
+Program Size: data=127.5 xdata=0 code=1682
+Target not created
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(569): warning C280: 'len': unreferenced local variable
+main.c(569): warning C280: 'message': unreferenced local variable
+main.c(577): warning C280: 'ret': unreferenced local variable
+main.c(577): warning C280: 'i': unreferenced local variable
+main.c(577): warning C280: 'flag': unreferenced local variable
+main.c(579): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(120): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_READ_PAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_CRPA?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+*** ERROR L107: ADDRESS SPACE OVERFLOW
+    SPACE:   DATA    
+    SEGMENT: ?DT?_OW_WRITE_SHA3_256?MAIN
+    LENGTH:  0004H
+Program Size: data=127.5 xdata=0 code=1714
+Target not created
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(570): warning C280: 'len': unreferenced local variable
+main.c(570): warning C280: 'message': unreferenced local variable
+main.c(578): warning C280: 'ret': unreferenced local variable
+main.c(578): warning C280: 'i': unreferenced local variable
+main.c(578): warning C280: 'flag': unreferenced local variable
+main.c(580): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(120): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_READ_PAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_CRPA?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+*** ERROR L107: ADDRESS SPACE OVERFLOW
+    SPACE:   DATA    
+    SEGMENT: ?DT?_OW_WRITE_SHA3_256?MAIN
+    LENGTH:  0004H
+Program Size: data=127.5 xdata=0 code=1746
+Target not created
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(570): warning C280: 'len': unreferenced local variable
+main.c(570): warning C280: 'message': unreferenced local variable
+main.c(578): warning C280: 'ret': unreferenced local variable
+main.c(578): warning C280: 'i': unreferenced local variable
+main.c(578): warning C280: 'flag': unreferenced local variable
+main.c(580): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(120): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_READ_PAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_CRPA?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=122.5 xdata=0 code=1741
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(570): warning C280: 'len': unreferenced local variable
+main.c(570): warning C280: 'message': unreferenced local variable
+main.c(578): warning C280: 'ret': unreferenced local variable
+main.c(578): warning C280: 'i': unreferenced local variable
+main.c(578): warning C280: 'flag': unreferenced local variable
+main.c(580): warning C280: 'getreset_ok': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(120): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_READ_PAGE?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_CRPA?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=122.5 xdata=0 code=1687
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(588): warning C280: 'len': unreferenced local variable
+main.c(588): warning C280: 'message': unreferenced local variable
+main.c(677): error C141: syntax error near 'else'
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(120): warning C280: 'j': unreferenced local variable
+Target not created
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(588): warning C280: 'len': unreferenced local variable
+main.c(588): warning C280: 'message': unreferenced local variable
+main.c(677): error C141: syntax error near 'else'
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(120): warning C280: 'j': unreferenced local variable
+Target not created
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(588): warning C280: 'len': unreferenced local variable
+main.c(588): warning C280: 'message': unreferenced local variable
+main.c(596): warning C280: 'ret': unreferenced local variable
+main.c(596): warning C280: 'flag': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(120): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=78.5 xdata=0 code=1816
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 7 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(588): warning C280: 'len': unreferenced local variable
+main.c(588): warning C280: 'message': unreferenced local variable
+main.c(596): warning C280: 'ret': unreferenced local variable
+main.c(596): warning C280: 'flag': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(120): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=78.5 xdata=0 code=1816
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 7 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(588): warning C280: 'len': unreferenced local variable
+main.c(588): warning C280: 'message': unreferenced local variable
+main.c(596): warning C280: 'ret': unreferenced local variable
+main.c(596): warning C280: 'flag': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(120): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=108.5 xdata=0 code=1846
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 7 Warning(s).
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(588): warning C280: 'len': unreferenced local variable
+main.c(588): warning C280: 'message': unreferenced local variable
+main.c(596): warning C280: 'ret': unreferenced local variable
+main.c(596): warning C280: 'flag': unreferenced local variable
+compiling MONI_I2C_A.C...
+moni_I2C_A\MONI_I2C_A.C(120): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SD_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OW_WRITE_SHA3_256?MAIN
+Program Size: data=108.5 xdata=0 code=1846
+creating hex file from ".\OBJ\SMEC98SPfor8051"...
+".\OBJ\SMEC98SPfor8051" - 0 Error(s), 7 Warning(s).

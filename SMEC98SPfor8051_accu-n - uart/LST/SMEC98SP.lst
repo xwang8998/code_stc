@@ -1,0 +1,586 @@
+C51 COMPILER V9.51   SMEC98SP                                                              04/18/2019 19:46:44 PAGE 1   
+
+
+C51 COMPILER V9.51, COMPILATION OF MODULE SMEC98SP
+OBJECT MODULE PLACED IN .\OBJ\SMEC98SP.obj
+COMPILER INVOKED BY: d:\Keil_v5\C51\BIN\C51.EXE SMEC98SP\Source\SMEC98SP.c LARGE BROWSE INCDIR(.\SMEC98SP\Header) DEBUG 
+                    -OBJECTEXTEND PRINT(.\LST\SMEC98SP.lst) OBJECT(.\OBJ\SMEC98SP.obj)
+
+line level    source
+
+   1          //COPYRIGHT (c) 2018-2025       Sinormous Technology
+   2          //ÉîÛÚÊĞÖĞ¾ŞÎ°ÒµĞÅÏ¢¿Æ¼¼ÓĞÏŞ¹«Ë¾
+   3          //www.sinormous.com; 
+   4          //Author:¹ËÍòË®
+   5          //QQ:47583353
+   6          
+   7          #include "string.h"
+   8          #include "iic_smec98sp.h"
+   9          //#include <sha1.h>
+  10          //#include <des.h>
+  11          
+  12          
+  13          
+  14          //===========================      ¼ÓÃÜĞ¾Æ¬ SMEC98SP ½Ó¿Ú  ===========================//
+  15          /*        ¼ÓÃÜĞ¾Æ¬ÄÚ²¿³ÌĞò¿É×ÔĞĞ±àĞ´¼°ĞŞ¸Ä, ÒÔÏÂÎª¸ù¾İ¼ÓÃÜĞ¾Æ¬ÑùÀı³ÌĞò±àĞ´           */
+  16          /*
+  17                  1.»ñÈ¡SMEC98SPµÄUIDºÅ
+  18                  2.²úÉú¼ÓÃÜĞ¾Æ¬µÄËæ»úÊı
+  19                  3.ÑéÖ¤PIN
+  20                  4.ÄÚ²¿ÈÏÖ¤
+  21                  5.Íâ²¿ÈÏÖ¤
+  22                  6.SHA1¹şÏ£Ëã·¨ÈÏÖ¤ 
+  23                  7.¹Ø¼üËã·¨·ÅÔÚ¼ÓÃÜĞ¾Æ¬ÄÚ
+  24                  8.¹¹ÔìËã·¨
+  25                  9.ÃÜÎÄ¶ÁÊı¾İ
+  26                  10.¶ÁÊı¾İ
+  27                  11.Ğ´Êı¾İ
+  28          */
+  29          
+  30          #define IIC_ADDR        0x00                    //¶ÔÓ¦SMEC98SPÖĞµØÖ·
+  31          
+  32          //---------------------------------------------------------
+  33          //º¯ÊıÃû: »ñÈ¡¼ÓÃÜĞ¾Æ¬SMEC98SPµÄUID
+  34          //²ÎÊıËµÃ÷£º
+  35          //                      pUID - UID´æ·ÅÖ¸Õë
+  36          //·µ»ØÖµËµÃ÷£º
+  37          //                      0 - ³É¹¦
+  38          //                      1 - Ê§°Ü
+  39          //---------------------------------------------------------
+  40          unsigned char SMEC_GetUid(unsigned char * pUID)
+  41          {
+  42   1              unsigned char bBuf[128] = {0};
+  43   1              unsigned char ret;
+  44   1              unsigned char  len;
+  45   1      
+  46   1              bBuf[0] = 0x83;                 //¶ÁUIDÃüÁî×Ö£¬¿É¸ü¸Ä£¬Óë¼ÓÃÜĞ¾Æ¬ÖĞ³ÌĞò±£³ÖÒ»ÖÂ
+  47   1              bBuf[1] = 0x00;
+  48   1              bBuf[2] = 0x00;
+  49   1              bBuf[3] = len = 0x0c;           //ĞèÒª»ñÈ¡µÄUID³¤¶È
+  50   1      
+  51   1              ret = IIC_WriteWithAddr(IIC_ADDR & 0xFE, bBuf, 4);
+  52   1              if(ret)                     //³ö´í
+  53   1                      return 1;
+  54   1      
+C51 COMPILER V9.51   SMEC98SP                                                              04/18/2019 19:46:44 PAGE 2   
+
+  55   1              //ËµÃ÷£ºÈôÕıÈ·»ñÈ¡UID, ¼ÓÃÜĞ¾Æ¬·µ»ØÊı¾İ90 00 + UID1 ~ UID12£®¡¡Ç°2×Ö½ÚÎª×´Ì¬Âë, 0x9000 ±íÊ¾Ö´ĞĞÕıÈ·, ÆäËû
+             -±íÊ¾´íÎó
+  56   1              ret = IIC_ReadWithAddr(IIC_ADDR | 0x1, bBuf, (len + 2));
+  57   1              if(ret || bBuf[0] != 0x90 || bBuf[1] != 0x00)         //Í¨ĞÅ´íÎó»ò×´Ì¬Âë²»Îª0x9000
+  58   1                      return 1;               
+  59   1      
+  60   1              memcpy(pUID, bBuf + 2, len);
+  61   1              return 0;                           //¶ÁÈ¡³É¹¦
+  62   1      }
+  63          
+  64          //---------------------------------------------------------
+  65          //º¯ÊıÃû: »ñÈ¡¼ÓÃÜĞ¾Æ¬SMEC98SPµÄËæ»úÊı
+  66          //²ÎÊıËµÃ÷£º
+  67          //                      pRandom - Ëæ»úÊı´æ·ÅÖ¸Õë
+  68          //·µ»ØÖµËµÃ÷£º
+  69          //                      0 - ³É¹¦
+  70          //                      1 - Ê§°Ü
+  71          //---------------------------------------------------------
+  72          //unsigned char SMEC_GetRandom(unsigned char *pRandom)
+  73          //{
+  74          //      unsigned char bBuf[128] = {0};
+  75          //      unsigned char  ret;
+  76          //      unsigned char  len;
+  77          //
+  78          //      bBuf[0] = 0x84;                 //¿É¸ü¸Ä£¬Óë¼ÓÃÜĞ¾Æ¬ÖĞ³ÌĞò±£³ÖÒ»ÖÂ
+  79          //      bBuf[1] = 0x00;
+  80          //      bBuf[2] = 0x00;
+  81          //      bBuf[3] = len = 0x08;       //ĞèÒª»ñÈ¡µÄËæ»úÊı³¤¶È
+  82          //
+  83          //      ret = IIC_WriteWithAddr(IIC_ADDR & 0xFE, bBuf, 4);
+  84          //      if(ret)                     //³ö´í
+  85          //              return 1;
+  86          //
+  87          //      //ÈôÕıÈ·»ñÈ¡Ëæ»úÊı, ¼ÓÃÜĞ¾Æ¬·µ»ØÊı¾İ90 00 + random1 ~ random8£®Ç°2×Ö½ÚÎª×´Ì¬Âë, 0x9000 ±íÊ¾Ö´ĞĞÕıÈ·, Æä
+             -Ëû±íÊ¾´íÎó
+  88          //      ret = IIC_ReadWithAddr(IIC_ADDR | 0x1, bBuf, (len+2)); 
+  89          //      if(ret || bBuf[0] != 0x90 || bBuf[1] != 0x00)         //Í¨ĞÅ´íÎó»ò×´Ì¬Âë²»Îª0x9000
+  90          //              return 1;               
+  91          //
+  92          //      memcpy(pRandom, bBuf + 2, len);
+  93          //      return 0;                           //³É¹¦
+  94          //}
+  95          //
+  96          ////---------------------------------------------------------
+  97          ////º¯ÊıÃû: ÑéÖ¤¼ÓÃÜĞ¾Æ¬SMEC98SPµÄPINÂë
+  98          ////²ÎÊıËµÃ÷£º
+  99          ////                    pbPin - PINÂë
+ 100          ////          bPinLen - PIN³¤¶È
+ 101          ////·µ»ØÖµËµÃ÷£º
+ 102          ////                    0 - ³É¹¦
+ 103          ////                    1 - Ê§°Ü
+ 104          ////---------------------------------------------------------
+ 105          //unsigned char SMEC_CheckPin(unsigned char *pbPin, unsigned char bPinLen)
+ 106          //{
+ 107          //      unsigned char bBuf[128] = {0};
+ 108          //      unsigned char  ret;
+ 109          //
+ 110          //      bBuf[0] = 0x70;                 //¿É¸ü¸Ä£¬Óë¼ÓÃÜĞ¾Æ¬ÖĞ³ÌĞò±£³ÖÒ»ÖÂ
+ 111          //      bBuf[1] = 0x00;
+ 112          //      bBuf[2] = 0x00;
+ 113          //      bBuf[3] = bPinLen;          //ĞèÒª»ñÈ¡µÄËæ»úÊı³¤¶È
+ 114          //      memcpy(&bBuf[4], pbPin, bPinLen);
+C51 COMPILER V9.51   SMEC98SP                                                              04/18/2019 19:46:44 PAGE 3   
+
+ 115          //
+ 116          //      ret = IIC_WriteWithAddr(IIC_ADDR & 0xFE, bBuf, bPinLen + 4);
+ 117          //      if(ret)                     //³ö´í
+ 118          //              return 1;
+ 119          //
+ 120          //      //ÈôÕıÈ·ÑéÖ¤PIN ¼ÓÃÜĞ¾Æ¬·µ»Ø 90 00
+ 121          //      ret = IIC_ReadWithAddr(IIC_ADDR | 0x1, bBuf, 2); 
+ 122          //      if(ret || bBuf[0] != 0x90 || bBuf[1] != 0x00)         //Í¨ĞÅ´íÎó»ò×´Ì¬Âë²»Îª0x9000
+ 123          //              return 1;               
+ 124          //
+ 125          //      return 0;                           //ÑéÖ¤PIN³É¹¦
+ 126          //}
+ 127          //
+ 128          ////---------------------------------------------------------
+ 129          ////º¯ÊıÃû: SHA1ÈÏÖ¤
+ 130          ////²ÎÊıËµÃ÷£º
+ 131          ////                    pbSha1Key       - SHA1ÈÏÖ¤ÃÜÔ¿£¬Êµ¼ÊÎª×öSHA1ÔËËãµÄÇ°ÖÃÊı¾İ, ÔÚÖ÷¿ØĞ¾Æ¬¼°SMEC98SPÄÚ²¿´æÔÚ, ²»ÓÃÔÚI2CÏßÂ·
+             -ÉÏ´«Êä
+ 132          ////                    bSha1KeyLen - SHA1ÈÏÖ¤ÃÜÔ¿³¤¶È
+ 133          ////                    pbRandom    - SHA1ÔËËãµÄÊı¾İ
+ 134          ////                    bRandomLen  - ÔËËãÊı¾İ³¤¶È
+ 135          ////·µ»ØÖµËµÃ÷£º
+ 136          ////                    0 - ³É¹¦
+ 137          ////                    1 - Ê§°Ü                                           
+ 138          ////ËµÃ÷:Ö÷¿ØĞ¾Æ¬ÏÈ¶ÔpbSha1Key×öHASH(ÕªÒª)ÔËËã,È»ºóÔÙ¶ÔpbRandom¼ÌĞø×öHASHÔËËã. ½«Æä½á¹ûÓëSMEC98SP·µ»ØÖµ×÷±
+             -È½Ï. 
+ 139          ////      pbSha1Key·Ö±ğ·ÅÓÚÖ÷¿ØĞ¾Æ¬¼°SMEC98SPÖĞ,ÎŞĞèÔÚÏßÂ·ÉÏ´«Êä.ÕâÑùÈç¹ûÖ÷¿ØĞ¾Æ¬Óë¼ÓÃÜĞ¾Æ¬µÄpbSha1Key²»Ò»
+             -ÖÂ, ÔòÎŞ·¨ÑéÖ¤³É¹¦
+ 140          ////---------------------------------------------------------
+ 141          //unsigned char SMEC_Sha1Auth(unsigned char *pbSha1Key, unsigned char bSha1KeyLen, unsigned char *pbRandom
+             -, unsigned char bRandomLen)
+ 142          //{
+ 143          //      unsigned char bBuf[128] = {0};
+ 144          //      unsigned char ret;
+ 145          //      unsigned char bHashData1[20] = {0}, bHashData2[20] = {0};       
+ 146          //
+ 147          //      bBuf[0] = 0x71;                 //¿É¸ü¸Ä£¬Óë¼ÓÃÜĞ¾Æ¬ÖĞ³ÌĞò±£³ÖÒ»ÖÂ
+ 148          //      bBuf[1] = 0x00;
+ 149          //      bBuf[2] = 0x00;
+ 150          //      bBuf[3] = bRandomLen;           //8×Ö½ÚËæ»úÊı³¤¶È
+ 151          //      memcpy(&bBuf[4], pbRandom, bRandomLen);
+ 152          //
+ 153          //      ret = IIC_WriteWithAddr(IIC_ADDR & 0xFE, bBuf, bRandomLen + 4);
+ 154          //      if(ret)                     //³ö´í
+ 155          //              return 1;
+ 156          //
+ 157          //      //ÈôÖ´ĞĞÕıÈ·£¬·µ»Ø×´Ì¬Âë90 00 + 20×Ö½ÚHASH½á¹û
+ 158          //      ret = IIC_ReadWithAddr(IIC_ADDR | 0x1, bBuf, 20 + 2); 
+ 159          //      if(ret || bBuf[0] != 0x90 || bBuf[1] != 0x00)         //Í¨ĞÅ´íÎó»ò×´Ì¬Âë²»Îª0x9000
+ 160          //              return 1;               
+ 161          //      memcpy(bHashData1, bBuf + 2, 20);
+ 162          //
+ 163          //      SHA1Init( &Sha1_Context );
+ 164          //      SHA1Update(&Sha1_Context, pbSha1Key, bSha1KeyLen);              //ÏÈ°ÑpbSha1Key½øĞĞÔËËã
+ 165          //      SHA1Update(&Sha1_Context, pbRandom, bRandomLen);
+ 166          //      SHA1Final(bHashData2, &Sha1_Context);                                   //Ëã³ö½á¹û
+ 167          //
+ 168          //      if(memcmp(bHashData1, bHashData2, 20))                                  //Èç¹ûÖ÷¿ØĞ¾Æ¬Óë¼ÓÃÜĞ¾Æ¬½á¹û²»Ò»ÖÂ,ÔòÈÏÖ¤Ê§°Ü
+ 169          //              return 1;
+ 170          //      return 0;
+ 171          //}
+ 172          //
+C51 COMPILER V9.51   SMEC98SP                                                              04/18/2019 19:46:44 PAGE 4   
+
+ 173          ////---------------------------------------------------------
+ 174          ////º¯ÊıÃû: ÄÚ²¿ÈÏÖ¤
+ 175          ////²ÎÊıËµÃ÷£º
+ 176          ////                    pbKey - ÄÚ²¿ÈÏÖ¤µÄÃÜÔ¿
+ 177          ////          pbRandom - ÄÚ²¿ÈÏÖ¤ËùÓÃËæ»úÊı
+ 178          ////·µ»ØÖµËµÃ÷£º
+ 179          ////                    0 - ³É¹¦
+ 180          ////                    1 - Ê§°Ü                                           
+ 181          ////ËµÃ÷:Ö÷¿ØĞ¾Æ¬ÏòSMEC98SP·¢ËÍ8×Ö½ÚËæ»úÊı, SMEC98SP½«Ëæ»úÊı½øĞĞ3DES¼ÓÃÜºóËÍ¸øÖ÷¿ØĞ¾Æ¬, ÓÉÖ÷¿ØĞ¾Æ¬ÅĞ¶Ï»ØËÍ
+             -Êı¾İµÄºÏ·¨ĞÔ
+ 182          ////---------------------------------------------------------
+ 183          //unsigned char SMEC_IntrAuth(unsigned char *pbKey, unsigned char *pbRandom)
+ 184          //{
+ 185          //      unsigned char bBuf[128] = {0};
+ 186          //      unsigned char ret;
+ 187          //      unsigned char bTmp[8] = {0};
+ 188          //
+ 189          //      bBuf[0] = 0x88;                 //¿É¸ü¸Ä£¬Óë¼ÓÃÜĞ¾Æ¬ÖĞ³ÌĞò±£³ÖÒ»ÖÂ
+ 190          //      bBuf[1] = 0x00;
+ 191          //      bBuf[2] = 0x00;
+ 192          //      bBuf[3] = 8;                    //8×Ö½ÚËæ»úÊı³¤¶È
+ 193          //      memcpy(&bBuf[4], pbRandom, 8);
+ 194          //
+ 195          //      ret = IIC_WriteWithAddr(IIC_ADDR & 0xFE, bBuf, 8 + 4);
+ 196          //      if(ret)                     //³ö´í
+ 197          //              return 1;
+ 198          //
+ 199          //      //Ö´ĞĞÕıÈ·£¬·µ»Ø90 00+Ëæ»úÊıÃÜÎÄÊı¾İ
+ 200          //      ret = IIC_ReadWithAddr(IIC_ADDR | 0x1, bBuf, 8+2); 
+ 201          //      if(ret || bBuf[0] != 0x90 || bBuf[1] != 0x00)         //Í¨ĞÅ´íÎó»ò×´Ì¬Âë²»Îª0x9000
+ 202          //              return 1;               
+ 203          //      
+ 204          //    TripleDES(pbRandom, pbKey, bTmp);
+ 205          //      if(memcmp(bBuf + 2, bTmp, 8))//±È¶Ô·µ»Ø½á¹û£¬¿´ÊÇ·ñÓëÔ¤ÆÚµÄÒ»ÖÂ
+ 206          //              return 1;
+ 207          //
+ 208          //      return 0;                           //ÄÚ²¿ÈÏÖ¤ÕıÈ·
+ 209          //}
+ 210          //
+ 211          ////---------------------------------------------------------
+ 212          ////º¯ÊıÃû: Íâ²¿ÈÏÖ¤
+ 213          ////²ÎÊıËµÃ÷£º
+ 214          ////                    pbKey - Íâ²¿ÈÏÖ¤ÃÜÔ¿
+ 215          ////·µ»ØÖµËµÃ÷£º
+ 216          ////                    0 - ³É¹¦
+ 217          ////                    1 - Ê§°Ü                                           
+ 218          ////ËµÃ÷:Ö÷¿ØĞ¾Æ¬ÏÈ»ñÈ¡SMEC98SPµÄ8×Ö½ÚËæ»úÊı, È»ºóÓÃbKey¶ÔËæ»úÊı×ö3DES¼ÓÃÜ£¬ÔÙ½«ÃÜÎÄËÍ¸øSMEC98SP
+ 219          ////---------------------------------------------------------
+ 220          //unsigned char SMEC_ExtrAuth(unsigned char *pbKey)
+ 221          //{
+ 222          //      unsigned char bBuf[128] = {0};
+ 223          //      unsigned char ret;
+ 224          //      unsigned char bCryptData[8] = {0}, bRandom[8] = {0};
+ 225          //
+ 226          //      if(SMEC_GetRandom(bRandom))//»ñÈ¡8×Ö½ÚËæ»úÊı
+ 227          //              return 1;
+ 228          //      TripleDES(bRandom, pbKey, bCryptData);  //½«Ëæ»úÊı×ö3DES¼ÓÃÜ
+ 229          //
+ 230          //      bBuf[0] = 0x82;                 //¿É¸ü¸Ä£¬Óë¼ÓÃÜĞ¾Æ¬ÖĞ³ÌĞò±£³ÖÒ»ÖÂ
+ 231          //      bBuf[1] = 0x00;
+ 232          //      bBuf[2] = 0x00;
+ 233          //      bBuf[3] = 8;                    //8×Ö½ÚËæ»úÊı³¤¶È
+C51 COMPILER V9.51   SMEC98SP                                                              04/18/2019 19:46:44 PAGE 5   
+
+ 234          //      memcpy(&bBuf[4], bCryptData, 8);
+ 235          //
+ 236          //      ret = IIC_WriteWithAddr(IIC_ADDR & 0xFE, bBuf, 8 + 4);
+ 237          //      if(ret)                     //³ö´í
+ 238          //              return 1;
+ 239          //
+ 240          //      //ÈôÖ´ĞĞÕıÈ·£¬·µ»Ø×´Ì¬Âë90 00
+ 241          //      ret = IIC_ReadWithAddr(IIC_ADDR | 0x1, bBuf, 2); 
+ 242          //      if(ret || bBuf[0] != 0x90 || bBuf[1] != 0x00)         //Í¨ĞÅ´íÎó»ò×´Ì¬Âë²»Îª0x9000
+ 243          //              return 1;               
+ 244          //
+ 245          //      return 0;                           //Íâ²¿ÈÏÖ¤ÕıÈ·
+ 246          //}
+ 247          //
+ 248          ////---------------------------------------------------------
+ 249          ////º¯ÊıÃû: ¶ÁFlash
+ 250          ////²ÎÊıËµÃ÷£º
+ 251          ////                    pbData - ¶ÁÈ¡Êı¾İ´æ·ÅµØÖ·
+ 252          ////                    bLen  -  ¶ÁÈ¡µÄÊı¾İ³¤¶È
+ 253          ////·µ»ØÖµËµÃ÷£º
+ 254          ////                    0 - ³É¹¦
+ 255          ////                    1 - Ê§°Ü                                           
+ 256          ////ËµÃ÷:
+ 257          ////---------------------------------------------------------
+ 258          //unsigned char SMEC_ReadFlash(unsigned short wAddr, unsigned char *pbData, unsigned char bLen)
+ 259          //{
+ 260          //      unsigned char bBuf[128] = {0};
+ 261          //      unsigned char ret;
+ 262          //
+ 263          //      bBuf[0] = 0xB0;                 //¿É¸ü¸Ä£¬Óë¼ÓÃÜĞ¾Æ¬ÖĞ³ÌĞò±£³ÖÒ»ÖÂ
+ 264          //      bBuf[1] = (unsigned char)(wAddr>>8);
+ 265          //      bBuf[2] = (unsigned char) wAddr;
+ 266          //      bBuf[3] = bLen;                 //ĞèÒª¶ÁÈ¡Êı¾İ³¤¶È
+ 267          //
+ 268          //      ret = IIC_WriteWithAddr(IIC_ADDR & 0xFE, bBuf, 4);
+ 269          //      if(ret)                     //³ö´í
+ 270          //              return 1;
+ 271          //
+ 272          //      //ÈôÖ´ĞĞÕıÈ·£¬·µ»Ø×´Ì¬Âë90 00 + Êı¾İ
+ 273          //      ret = IIC_ReadWithAddr(IIC_ADDR | 0x1, bBuf, bLen + 2); 
+ 274          //      if(ret || bBuf[0] != 0x90 || bBuf[1] != 0x00)         //Í¨ĞÅ´íÎó»ò×´Ì¬Âë²»Îª0x9000
+ 275          //              return 1;               
+ 276          //      
+ 277          //      memcpy(pbData, bBuf + 2, bLen);
+ 278          //      return 0;                           //ÕıÈ·
+ 279          //} 
+ 280          //
+ 281          ////---------------------------------------------------------
+ 282          ////º¯ÊıÃû: ÃÜÎÄ¶Á
+ 283          ////²ÎÊıËµÃ÷£º
+ 284          ////                    pbSeesionKey  - ½âÃÜÎÄÊı¾İµÄÃÜÔ¿(8×Ö½Ú)
+ 285          ////                    pbData            - ÃÜÎÄ½âÃÜºóÊı¾İ
+ 286          ////                    bLen              - ¶ÁÈ¡µÄÊı¾İ³¤¶È
+ 287          ////·µ»ØÖµËµÃ÷£º
+ 288          ////                    0 - ³É¹¦
+ 289          ////                    1 - Ê§°Ü                                           
+ 290          ////ËµÃ÷:
+ 291          ////---------------------------------------------------------
+ 292          //unsigned char SMEC_CryptReadFlash(unsigned char *pbSeesionKey, unsigned short wAddr, unsigned char *pbDa
+             -ta, unsigned char bLen)
+ 293          //{
+ 294          //      unsigned char bBuf[128] = {0};
+C51 COMPILER V9.51   SMEC98SP                                                              04/18/2019 19:46:44 PAGE 6   
+
+ 295          //      unsigned char ret;
+ 296          //      unsigned char len, i;
+ 297          //
+ 298          //      len = (bLen + 7) / 8 * 8;       //½«bLen×ª»¯Îª8µÄÕûÊı
+ 299          //
+ 300          //      bBuf[0] = 0xB1;                 //¿É¸ü¸Ä£¬Óë¼ÓÃÜĞ¾Æ¬ÖĞ³ÌĞò±£³ÖÒ»ÖÂ
+ 301          //      bBuf[1] = (unsigned char)(wAddr>>8);
+ 302          //      bBuf[2] = (unsigned char) wAddr;
+ 303          //      bBuf[3] = len;                  //ĞèÒª¶ÁÈ¡µÄÃÜÎÄÊı¾İ³¤¶È, 8µÄÕûÊı±¶
+ 304          //
+ 305          //      ret = IIC_WriteWithAddr(IIC_ADDR & 0xFE, bBuf, 4);
+ 306          //      if(ret)                     //³ö´í
+ 307          //              return 1;
+ 308          //
+ 309          //      //ÈôÖ´ĞĞÕıÈ·£¬·µ»Ø×´Ì¬Âë90 00 + ÃÜÎÄÊı¾İ
+ 310          //      ret = IIC_ReadWithAddr(IIC_ADDR | 0x1, bBuf, len + 2); 
+ 311          //      if(ret || bBuf[0] != 0x90 || bBuf[1] != 0x00)         //Í¨ĞÅ´íÎó»ò×´Ì¬Âë²»Îª0x9000
+ 312          //              return 1;               
+ 313          //      
+ 314          //      for(i = 0; i < len; i += 8)
+ 315          //      {
+ 316          //              decrypt(&bBuf[2 + i], pbSeesionKey, &bBuf[2 + i]);                      //½«¶ÁÈ¡µ½µÄÃÜÎÄÊı¾İ½âÃÜ
+ 317          //      }
+ 318          //
+ 319          //      memcpy(pbData, bBuf + 2, bLen);
+ 320          //      return 0;                           //ÕıÈ·
+ 321          //} 
+ 322          //
+ 323          ////---------------------------------------------------------
+ 324          ////º¯ÊıÃû: Ğ´Flash
+ 325          ////²ÎÊıËµÃ÷£º
+ 326          ////                    pbData - Ğ´ÈëÊı¾İ´æ·ÅµØÖ·
+ 327          ////                    bLen  -  Ğ´ÈëµÄÊı¾İ³¤¶È
+ 328          ////·µ»ØÖµËµÃ÷£º
+ 329          ////                    0 - ³É¹¦
+ 330          ////                    1 - Ê§°Ü                                           
+ 331          ////ËµÃ÷:
+ 332          ////---------------------------------------------------------
+ 333          //unsigned char SMEC_WriteFlash(unsigned short wAddr, unsigned char *pbData, unsigned char bLen)
+ 334          //{
+ 335          //      unsigned char bBuf[128] = {0};
+ 336          //      unsigned char ret;
+ 337          //
+ 338          //      bBuf[0] = 0xD6;                 //¿É¸ü¸Ä£¬Óë¼ÓÃÜĞ¾Æ¬ÖĞ³ÌĞò±£³ÖÒ»ÖÂ
+ 339          //      bBuf[1] = (unsigned char)(wAddr>>8);
+ 340          //      bBuf[2] = (unsigned char) wAddr;
+ 341          //      bBuf[3] = bLen;                 //ĞèÒª¶ÁÈ¡Êı¾İ³¤¶È
+ 342          //      memcpy(&bBuf[4], pbData, bLen);
+ 343          //
+ 344          //      ret = IIC_WriteWithAddr(IIC_ADDR & 0xFE, bBuf, bLen + 4);
+ 345          //      if(ret)                     //³ö´í
+ 346          //              return 1;
+ 347          //
+ 348          //      //ÈôÖ´ĞĞÕıÈ·£¬·µ»Ø×´Ì¬Âë90 00
+ 349          //      ret = IIC_ReadWithAddr(IIC_ADDR | 0x1, bBuf, 2); 
+ 350          //      if(ret || bBuf[0] != 0x90 || bBuf[1] != 0x00)         //Í¨ĞÅ´íÎó»ò×´Ì¬Âë²»Îª0x9000
+ 351          //              return 1;               
+ 352          //      return 0;                           //ÕıÈ·
+ 353          //} 
+ 354          //
+ 355          ////---------------------------------------------------------
+ 356          ////º¯ÊıÃû: µ÷ÓÃ¼ÓÃÜĞ¾Æ¬ÄÚ²¿¼ÆËãÔ²ÖÜ³¤Ëã·¨
+C51 COMPILER V9.51   SMEC98SP                                                              04/18/2019 19:46:44 PAGE 7   
+
+ 357          ////²ÎÊıËµÃ÷£º
+ 358          ////                    pbInput                 - ÊäÈëÊı¾İ
+ 359          ////                    bInputLen               - ÊäÈëÊı¾İ³¤¶È
+ 360          ////                    pbOutput                - ¼ÓÃÜĞ¾Æ¬ÔËËãºó,Êä³öÊı¾İ
+ 361          ////                    pbOutputLen             - Êä³öÊı¾İ³¤¶È
+ 362          ////·µ»ØÖµËµÃ÷£º
+ 363          ////                    0 - ³É¹¦
+ 364          ////                    1 - Ê§°Ü                                           
+ 365          ////ËµÃ÷: ½« MCU ÖĞµÄÒ»²¿·Ö¹Ø¼ü´úÂë£¬·ÅÈë¼ÓÃÜĞ¾Æ¬ÖĞÔËĞĞ£¬µ±ĞèÒªÓÃµ½SMEC98SPÖĞµÄËã·¨Ê±£¬
+ 366          ////      ÓÉMCU ÏòSMEC98SP ·¢ËÍÖ¸Áî£¬SMEC98SP ¸ù¾İÖ¸Áî£¬ÔÚÄÚ²¿ÔËĞĞ£¬·µ»Ø½á¹û¸øMCU¡£
+ 367          ////---------------------------------------------------------
+ 368          //unsigned char SMEC_CircleAlg(unsigned char *pbInput, unsigned char bInputLen, unsigned char *pbOutput, u
+             -nsigned char *pbOutputLen)
+ 369          //{
+ 370          //      unsigned char bBuf[128] = {0};
+ 371          //      unsigned char ret;
+ 372          //
+ 373          //      bBuf[0] = 0x72;                 //¿É¸ü¸Ä£¬Óë¼ÓÃÜĞ¾Æ¬ÖĞ³ÌĞò±£³ÖÒ»ÖÂ
+ 374          //      bBuf[1] = 0x00;
+ 375          //      bBuf[2] = 0x00;
+ 376          //      bBuf[3] = bInputLen;                    
+ 377          //      memcpy(&bBuf[4], pbInput, bInputLen);
+ 378          //
+ 379          //      ret = IIC_WriteWithAddr(IIC_ADDR & 0xFE, bBuf, 4 + bInputLen);
+ 380          //      if(ret)                     //³ö´í
+ 381          //              return 1;
+ 382          //
+ 383          //      //ÈôÖ´ĞĞÕıÈ·£¬·µ»Ø×´Ì¬Âë90 00 + ¼ÆËã½á¹û, ÎÒÃÇÑùÀıÖĞµÄËã·¨Îª ¼ÆËãÔ²ÖÜ³¤, Ö»×öÁË1¸ö×Ö½ÚµÄÊä³ö
+ 384          //      ret = IIC_ReadWithAddr(IIC_ADDR | 0x1, bBuf, 1 + 2); 
+ 385          //      if(ret || bBuf[0] != 0x90 || bBuf[1] != 0x00)         //Í¨ĞÅ´íÎó»ò×´Ì¬Âë²»Îª0x9000
+ 386          //              return 1;               
+ 387          //
+ 388          //      *pbOutputLen = 1;                       //ÑùÀıÖĞµÄËã·¨Îª ¼ÆËãÔ²ÖÜ³¤, Ö»×öÁË1¸ö×Ö½ÚµÄÊä³ö
+ 389          //      memcpy(pbOutput, bBuf + 2, *pbOutputLen);
+ 390          //      return 0;                           //ÕıÈ·
+ 391          //} 
+ 392          //
+ 393          ////---------------------------------------------------------
+ 394          ////º¯ÊıÃû: µ÷ÓÃ¼ÓÃÜĞ¾Æ¬ÄÚ²¿¼ÆËãÔ²ÖÜ³¤Ëã·¨, ²¢ÓÃ¹ı³ÌÃÜÔ¿¼ÓÃÜºó,ÔÚÏßÂ·ÉÏ´«Êä
+ 395          ////²ÎÊıËµÃ÷£º
+ 396          ////                    pbSeesionKey    - ¹ı³ÌÃÜÔ¿
+ 397          ////                    pbInput                 - ÊäÈëÊı¾İ
+ 398          ////                    bInputLen               - ÊäÈëÊı¾İ³¤¶È
+ 399          ////                    pbOutput                - ¼ÓÃÜĞ¾Æ¬ÔËËãºó,Êä³öÊı¾İ
+ 400          ////                    pbOutputLen             - Êä³öÊı¾İ³¤¶È
+ 401          ////·µ»ØÖµËµÃ÷£º
+ 402          ////                    0 - ³É¹¦
+ 403          ////                    1 - Ê§°Ü
+ 404          ////ËµÃ÷: ½« MCU ÖĞµÄÒ»²¿·Ö¹Ø¼ü´úÂë£¬·ÅÈë¼ÓÃÜĞ¾Æ¬ÖĞÔËĞĞ£¬µ±ĞèÒªÓÃµ½SMEC98SPÖĞµÄËã·¨Ê±£¬
+ 405          ////      ÓÉMCU ÏòSMEC98SP ·¢ËÍÖ¸Áî£¬SMEC98SP ¸ù¾İÖ¸Áî£¬ÔÚÄÚ²¿ÔËĞĞ£¬·µ»Ø½á¹û¸øMCU¡£
+ 406          ////---------------------------------------------------------
+ 407          //unsigned char SMEC_CircleAlgCrypt(unsigned char *pbSeesionKey, unsigned char *pbInput, unsigned char bIn
+             -putLen, unsigned char *pbOutput, unsigned char *pbOutputLen)
+ 408          //{
+ 409          //      unsigned char bBuf[128] = {0}, bTmp[8] = {0};
+ 410          //      unsigned char ret;
+ 411          //
+ 412          //      bBuf[0] = 0x73;                 //¿É¸ü¸Ä£¬Óë¼ÓÃÜĞ¾Æ¬ÖĞ³ÌĞò±£³ÖÒ»ÖÂ
+ 413          //      bBuf[1] = 0x00;
+ 414          //      bBuf[2] = 0x00;
+ 415          //      bBuf[3] = 8;                            //
+ 416          //      memcpy(bTmp, pbInput, bInputLen);
+C51 COMPILER V9.51   SMEC98SP                                                              04/18/2019 19:46:44 PAGE 8   
+
+ 417          //      encrypt(bTmp, pbSeesionKey, &bBuf[4]);                             //½«¶Ë¿ÚÊı¾İ¼ÓÃÜ,´«¸øSMEC98SP,ÈÃÆäÔËËã
+ 418          //
+ 419          //      ret = IIC_WriteWithAddr(IIC_ADDR & 0xFE, bBuf, 8 + 4);
+ 420          //      if(ret)                     //³ö´í
+ 421          //              return 1;
+ 422          //
+ 423          //      //ÈôÖ´ĞĞÕıÈ·£¬·µ»Ø×´Ì¬Âë90 00 + ¼ÆËã½á¹ûµÄÃÜÎÄ, ÎÒÃÇÑùÀıÖĞµÄËã·¨Îª ¼ÆËãÔ²ÖÜ³¤, Ö»×öÁË1¸ö×Ö½ÚµÄÃ÷ÎÄÊä³ö
+ 424          //      ret = IIC_ReadWithAddr(IIC_ADDR | 0x1, bBuf, 8 + 2);
+ 425          //      if(ret || bBuf[0] != 0x90 || bBuf[1] != 0x00)         //Í¨ĞÅ´íÎó»ò×´Ì¬Âë²»Îª0x9000
+ 426          //              return 1;               
+ 427          //
+ 428          //      decrypt(&bBuf[2], pbSeesionKey, bTmp);                                  //½«ÃÜÎÄÔËËã½á¹û½âÃÜ
+ 429          //      *pbOutputLen = bInputLen;                                                               //ÑùÀıÖĞµÄËã·¨Îª ¼ÆËãÔ²ÖÜ³¤, Ö»×öÁË1¸ö×Ö½ÚµÄÊä³ö.Çë¸ù¾İ¾ßÌåËã·¨ĞŞ¸Ä, 
+             -ÕâÀï¼ÙÉèµÈÓÚÊäÈëµÄÊı¾İ³¤¶È
+ 430          //      memcpy(pbOutput, bTmp, *pbOutputLen);
+ 431          //      return 0;                           //ÕıÈ·
+ 432          //}
+ 433          //
+ 434          ////---------------------------------------------------------
+ 435          ////º¯ÊıÃû: ²úÉú¹ı³ÌÃÜÔ¿
+ 436          ////²ÎÊıËµÃ÷£º
+ 437          ////                    pbMKey                  - ¿ØÖÆÃÜÔ¿,ÓÃÓÚ²úÉú¹ı³ÌÃÜÔ¿, 16×Ö½Ú
+ 438          ////                    pbRandom                - Ö÷¿ØĞ¾Æ¬µÄËæ»úÊı, 8×Ö½Ú
+ 439          ////                    pbSeesionKey    - ¹ı³ÌÃÜÔ¿
+ 440          ////·µ»ØÖµËµÃ÷£º
+ 441          ////                    0 - ³É¹¦
+ 442          ////                    1 - Ê§°Ü                                           
+ 443          ////ËµÃ÷: ³É¹¦·¢Éú´ËÃüÁî, ¼ÓÃÜĞ¾Æ¬»ØËÍ8×Ö½ÚËæ»úÊı, ²¢½«¹ı³ÌÃÜÔ¿±£´æÔÚRAMÖĞ
+ 444          ////      ¹ı³ÌÃÜÔ¿µÄ²úÉú:  pbMKey ¶Ô (pbRandom ^ SMEC98SPËæ»úÊı)×ö3DES¼ÓÃÜÔËËã, ËùµÃ½á¹ûÎª pbSeesionKey(8×
+             -Ö½Ú)
+ 445          ////---------------------------------------------------------
+ 446          //unsigned char SMEC_GenSessionKey(unsigned char *pbMKey, unsigned char *pbRandom, unsigned char *pbSeesio
+             -nKey)
+ 447          //{
+ 448          //      unsigned char bBuf[128] = {0}, bTmp[8] = {0};
+ 449          //      unsigned char ret;
+ 450          //      unsigned char i;
+ 451          //
+ 452          //      bBuf[0] = 0xA0;                 //¿É¸ü¸Ä£¬Óë¼ÓÃÜĞ¾Æ¬ÖĞ³ÌĞò±£³ÖÒ»ÖÂ
+ 453          //      bBuf[1] = 0x00;
+ 454          //      bBuf[2] = 0x00;
+ 455          //      bBuf[3] = 8;                    
+ 456          //      memcpy(&bBuf[4], pbRandom, 8);
+ 457          //
+ 458          //      ret = IIC_WriteWithAddr(IIC_ADDR & 0xFE, bBuf, 8 + 4);
+ 459          //      if(ret)                     //³ö´í
+ 460          //              return 1;
+ 461          //
+ 462          //      //ÈôÖ´ĞĞÕıÈ·£¬·µ»Ø×´Ì¬Âë90 00 + 8×Ö½ÚËæ»úÊı
+ 463          //      ret = IIC_ReadWithAddr(IIC_ADDR | 0x1, bBuf, 8 + 2); 
+ 464          //      if(ret || bBuf[0] != 0x90 || bBuf[1] != 0x00)         //Í¨ĞÅ´íÎó»ò×´Ì¬Âë²»Îª0x9000
+ 465          //              return 1;               
+ 466          //      
+ 467          //      for(i = 0; i < 8; i ++)
+ 468          //      {
+ 469          //              bTmp[i] = pbRandom[i] ^ bBuf[2 + i];                            //½«SMEC98SPµÄËæ»úÊıÓëÖ÷¿ØĞ¾Æ¬Ëæ»úÊı×öÒì»òÔËËã
+ 470          //      }
+ 471          //
+ 472          //      TripleDES(bTmp, pbMKey, pbSeesionKey);                                  //¼ÆËã¹ı³ÌÃÜÔ¿
+ 473          //      return 0;                           //ÕıÈ·
+ 474          //} 
+ 475          //
+C51 COMPILER V9.51   SMEC98SP                                                              04/18/2019 19:46:44 PAGE 9   
+
+ 476          ////---------------------------------------------------------
+ 477          ////º¯ÊıÃû: ¶Ë¿ÚÊı¾İÔËËã
+ 478          ////²ÎÊıËµÃ÷£º
+ 479          ////                    pbSeesionKey    - ¹ı³ÌÃÜÔ¿
+ 480          ////                    pbGpioInput     - ĞèÒªÔËËãµÄIO¿ÚÊı¾İÊäÈë
+ 481          ////                    bPortDataLen    - IO¿ÚÊı¾İ³¤¶È
+ 482          ////                    pbGpioOutput    - IO¿Ú"ÔËËã"ºóµÄ½á¹û
+ 483          ////·µ»ØÖµËµÃ÷£º
+ 484          ////                    0 - ³É¹¦
+ 485          ////                    1 - Ê§°Ü                                           
+ 486          ////ËµÃ÷: ¹¹ÔìËã·¨(PA¿ÚÊı¾İ->ÃÜÎÄËÍ¼ÓÃÜĞ¾Æ¬, ÃÜÎÄ·µ»Ø)
+ 487          ////  Õë¶ÔºÜ¶à¿ØÖÆÀàĞèÇó,Ã»ÓĞ"¹Ø¼üËã·¨"¿ÉÒÔ´æ·ÅÔÚ¼ÓÃÜĞ¾Æ¬ÖĞ,ÎÒÃÇ¹¹ÔìÁËÒ»¸öËã·¨:
+ 488          ////  PA¶Ë¿ÚÊı¾İ2×Ö½Ú, ÓÃ¹ı³ÌÃÜÔ¿¼ÓÃÜºó,ËÍ¸øSMEC98SP,ÓÉSMEC98SP½âÃÜºóÈ¡·´,ÔÙÓÉ¹ı³ÌÃÜÔ¿¼ÓÃÜ»ØËÍ¸øÖ÷¿ØĞ¾Æ¬.Õ
+             -âÑù¾Í¹¹Ôì³öÒ»¸öËã·¨
+ 489          ////  ÈçPA = 0x0000, ÓÃ¹ı³ÌÃÜÔ¿¼ÓÃÜËÍ¸øSMEC98SP, SMEC98SP½âÃÜºóµÃµ½0x0000, È¡·´ºóÎª0xFFFF, ÔÙÓÃ¹ı³ÌÃÜÔ¿¼ÓÃ
+             -Ü¸øÖ÷¿ØĞ¾Æ¬. Ö÷¿ØĞ¾Æ¬½âÃÜºóµÃµ½0xFFFF
+ 490          ////  ÕâÑù, ÅĞ¶ÏIO¿ÚÊı¾İ·½Ê½,Ö»Òª¸úÖ®Ç°Ïà·´¾Í¿ÉÒÔ. ±ÈÈçËµPA0 ¸ßµçÆ½²Å×öµÄ¶¯×÷, µ÷ÓÃÁËÕâ¸öº¯Êıºó,ÔòÅĞ¶ÏPA0Î
+             -ªµÍµçÆ½È¥×ö
+ 491          ////  ÓÉÓÚÃ¿´ÎÉÏµç,¹ı³ÌÃÜÔ¿ÊÇÁÙÊ±²úÉúµÄ, ²¢ÇÒÊÇ±ä»¯µÄ, ÕâÑù¼´Ê¹PA¿ÚÊı¾İÏàÍ¬, ÔÚÏßÂ·ÉÏÍ¨Ñ¶µÄÊı¾İÒ²ÊÇ²»Í¬µÄ,
+             - ¶øÖ÷¿ØĞ¾Æ¬³ÌĞòÓÖÊÇ»ùÓÚ"ÔËËã½á¹û"¶ø¹¤×÷µÄ,
+ 492          ////  ´Ó¶øÔö¼ÓÁËÆÆ½âÄÑ¶È, ¿ÉÒÔ·ÀÖ¹"ÕæÖµµã"¹¥»÷
+ 493          ////---------------------------------------------------------
+ 494          //unsigned char SMEC_GpioAlg(unsigned char *pbSeesionKey, unsigned char *pbGpioInput, unsigned char bGpioD
+             -ataLen, unsigned char *pbGpioOutput)
+ 495          //{
+ 496          //      unsigned char bBuf[128] = {0}, bTmp[8] = {0};
+ 497          //      unsigned char ret;
+ 498          //
+ 499          //      bBuf[0] = 0xA2;                 //¿É¸ü¸Ä£¬Óë¼ÓÃÜĞ¾Æ¬ÖĞ³ÌĞò±£³ÖÒ»ÖÂ
+ 500          //      bBuf[1] = 0x00;
+ 501          //      bBuf[2] = 0x00;
+ 502          //      bBuf[3] = 8;
+ 503          //      memcpy(bTmp, pbGpioInput, bGpioDataLen);
+ 504          //      encrypt(bTmp, pbSeesionKey, &bBuf[4]);                             //½«¶Ë¿ÚÊı¾İ¼ÓÃÜ,´«¸øSMEC98SP,ÈÃÆä"ÔËËã"
+ 505          //
+ 506          //      ret = IIC_WriteWithAddr(IIC_ADDR & 0xFE, bBuf, 8 + 4);
+ 507          //      if(ret)                     //³ö´í
+ 508          //              return 1;
+ 509          //
+ 510          //      //ÈôÖ´ĞĞÕıÈ·£¬·µ»Ø×´Ì¬Âë90 00 + ±»"ÔËËã"¹ıµÄ¶Ë¿ÚÃÜÎÄÊı¾İ
+ 511          //      ret = IIC_ReadWithAddr(IIC_ADDR | 0x1, bBuf, 8 + 2); 
+ 512          //      if(ret || bBuf[0] != 0x90 || bBuf[1] != 0x00)         //Í¨ĞÅ´íÎó»ò×´Ì¬Âë²»Îª0x9000
+ 513          //              return 1;               
+ 514          //      decrypt(&bBuf[2], pbSeesionKey, bTmp);                                  //½«"ÔËËã"½á¹û½âÃÜ
+ 515          //      memcpy(pbGpioOutput, bTmp, bGpioDataLen);
+ 516          //              
+ 517          //      return 0;                           //ÕıÈ·
+ 518          //}
+ 519          
+ 520          
+ 521          
+ 522          
+ 523          
+ 524          
+ 525          
+ 526          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    148    ----
+   CONSTANT SIZE    =    128    ----
+   XDATA SIZE       =   ----     132
+C51 COMPILER V9.51   SMEC98SP                                                              04/18/2019 19:46:44 PAGE 10  
+
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

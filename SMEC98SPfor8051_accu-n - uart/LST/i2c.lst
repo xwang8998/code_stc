@@ -1,0 +1,226 @@
+C51 COMPILER V9.51   I2C                                                                   04/19/2019 22:21:13 PAGE 1   
+
+
+C51 COMPILER V9.51, COMPILATION OF MODULE I2C
+OBJECT MODULE PLACED IN .\OBJ\i2c.obj
+COMPILER INVOKED BY: d:\Keil_v5\C51\BIN\C51.EXE fpga_i2c\i2c.c ROM(SMALL) BROWSE INCDIR(.\SMEC98SP\Header) DEBUG OBJECTE
+                    -XTEND PRINT(.\LST\i2c.lst) OBJECT(.\OBJ\i2c.obj)
+
+line level    source
+
+   1          /*---------------------------------------------------------------------*/
+   2          /* --- STC MCU Limited ------------------------------------------------*/
+   3          /* --- STC15F4K60S4 系列 定时器0的16位自动重装载模式举例---------------*/
+   4          /* --- Mobile: (86)13922805190 -------------- -------------------------*/
+   5          /* --- Fax: 86-0513-55012956,55012947,55012969 ------------------------*/
+   6          /* --- Tel: 86-0513-55012928,55012929,55012966-------------------------*/
+   7          /* --- Web: www.STCMCU.com --------------------------------------------*/
+   8          /* --- Web: www.GXWMCU.com --------------------------------------------*/
+   9          /* 如果要在程序中使用此代码,请在程序中注明使用了STC的资料及程序        */
+  10          /* 如果要在文章中应用此代码,请在文章中注明使用了STC的资料及程序        */
+  11          /*---------------------------------------------------------------------*/
+  12          
+  13          //本示例在Keil开发环境下请选择Intel的8058芯片型号进行编译
+  14          //若无特别说明,工作频率一般为11.0592MHz
+  15          
+  16          
+  17          #include "reg51.h"
+  18          #include "intrins.h"
+  19          //#include      "moni_I2C_A.h"
+  20          
+  21          //extern  set_i2c_slave(uchar xdevaddr,uchar xbyte_addr,uchar xbyte_data);
+  22          //-----------------------------------------------
+  23          typedef unsigned char BYTE;
+  24          typedef unsigned int WORD;
+  25          #define FOSC 11059200L
+  26          
+  27          #define T1MS (65536-FOSC/1000)      //1T模式
+  28          //#define T1MS (65536-FOSC/12/1000) //12T模式
+  29          
+  30          sfr AUXR = 0x8e;                    //Auxiliary register
+  31          sbit    FPGA_CTR = P3^4;
+  32          sbit    IIC_SDA =       P3^3;//P2^7;
+  33          sbit    IIC_SCL =       P3^2;//P2^6;
+  34          
+  35          void display(unsigned char aa);
+  36          void delay(unsigned int t);
+  37          void delay_IIC(void);
+  38          void IIC_Init(void);
+  39          void IIC_start(void);
+  40          void IIC_stop(void);
+  41          bit IIC_Tack(void);
+  42          void IIC_single_byte_write(unsigned char Daddr,unsigned char Waddr,unsigned char Data);
+  43          unsigned char IIC_single_byte_read(unsigned char Daddr,unsigned char Waddr);
+  44          void IIC_write_byte(unsigned char Data);
+  45          unsigned char IIC_read_byte(void);
+  46          //-----------------------------------------------
+  47          int time = 0;
+  48          int s =0;
+  49          unsigned char math_data_H,math_data_L; 
+  50                  unsigned char end_data_H,end_data_L;
+  51          /* Timer0 interrupt routine */
+  52          
+  53          
+  54          
+C51 COMPILER V9.51   I2C                                                                   04/19/2019 22:21:13 PAGE 2   
+
+  55          //-----------------------------------------------
+  56          //========================== 功能子函数===============================
+  57          void delay(unsigned int t)
+  58          {// 延时函数
+  59   1      while(t){t--;}; //延时循环计数
+  60   1      }
+  61          //-------------------------------------------------------------------
+  62          void delay_IIC(void)
+  63          {//IIC 总线限速延时函数。
+  64   1      //该函数是空函数，延时4 个机器周期。
+  65   1      ;;
+  66   1      }
+  67          //-------------------------------------------------------------------
+  68          void IIC_Init(void)
+  69          {//IIC 总线初始化函数
+  70   1      IIC_SDA=1;// 释放IIC 总线的数据线。
+  71   1      IIC_SCL=1;// 释放IIC 总线的时钟线。
+  72   1      }
+  73          //-------------------------------------------------------------------
+  74          void IIC_start(void)
+  75          {//IIC 总线产生起始信号函数
+  76   1      IIC_SDA=1;// 拉高数据线
+  77   1      IIC_SCL=1;// 拉高时钟线
+  78   1      delay_IIC();
+  79   1      IIC_SDA=0;// 在时钟线为高电平时，拉低数据线，产生起始信号。
+  80   1      delay_IIC();
+  81   1      IIC_SCL=0;// 拉低时钟线
+  82   1      }
+  83          //-------------------------------------------------------------------
+  84          void IIC_stop(void)
+  85          {//IIC 总线产生停止信号函数
+  86   1      IIC_SDA=0;// 拉低数据线
+  87   1      delay_IIC();
+  88   1      IIC_SCL=1;// 拉高时钟线。
+  89   1      delay_IIC();
+  90   1      IIC_SDA=1;// 时钟时线为高电平时，拉高数据线，产生停止信号。
+  91   1      delay_IIC();
+  92   1      }
+  93          //-------------------------------------------------------------------
+  94          bit IIC_Tack(void)
+  95          {// 接收应答信号函数
+  96   1      bit ack;// 定义一个位变量，来暂存应答状态。
+  97   1      IIC_SDA=1;// 释放数据总线，准备接收应答信号。
+  98   1      delay_IIC();
+  99   1      IIC_SCL=1;// 拉高时钟线。
+ 100   1      delay_IIC();
+ 101   1      ack=IIC_SDA;// 读取应答信号的状态。
+ 102   1      delay_IIC();
+ 103   1      IIC_SCL=0;// 拉低时钟线。
+ 104   1      delay_IIC();
+ 105   1      return ack;// 返回应答信号的状态， 0 表示应答， 1 表示非应答。
+ 106   1      }
+ 107          //-------------------------------------------------------------------
+ 108          void IIC_write_byte(unsigned char Data)
+ 109          {// 向IIC 总线写入一个字节的数据函数
+ 110   1      unsigned char i;
+ 111   1      for(i=0;i<8;i++)// 有8 位数据
+ 112   1      {
+ 113   2      IIC_SDA=Data&0x80;// 写最高位的数据
+ 114   2      delay_IIC();
+ 115   2      IIC_SCL=1; // 拉高时钟线，将数写入到设备中。
+ 116   2      delay_IIC();
+C51 COMPILER V9.51   I2C                                                                   04/19/2019 22:21:13 PAGE 3   
+
+ 117   2      IIC_SCL=0;// 拉低时钟线，允许改变数据线的状态
+ 118   2      delay_IIC();
+ 119   2      Data=Data<<1;// 数据左移一位，把次高位放在最高位,为写入次高位做准备
+ 120   2      }
+ 121   1      }
+ 122          //-------------------------------------------------------------------
+ 123          unsigned char IIC_read_byte()
+ 124          {// 从IIC 总线读取一个字节的数据函数
+ 125   1      unsigned char i;
+ 126   1      unsigned char Data; //定义一个缓冲寄存器。
+ 127   1      for(i=0;i<8;i++)// 有8 位数据
+ 128   1      {
+ 129   2      IIC_SCL=1;// 拉高时钟线，为读取下一位数据做准备。
+ 130   2      delay_IIC();
+ 131   2      Data=Data<<1;// 将缓冲字节的数据左移一位，准备读取数据。
+ 132   2      delay_IIC();
+ 133   2      if(IIC_SDA)// 如果数据线为高平电平。
+ 134   2      Data=Data|0x1;// 则给缓冲字节的最低位写1。
+ 135   2      IIC_SCL=0;// 拉低时钟线，为读取下一位数据做准备。
+ 136   2      delay_IIC();
+ 137   2      }
+ 138   1      return Data;// 返回读取的一个字节数据。
+ 139   1      }
+ 140          //-------------------------------------------------------------------
+ 141          void IIC_single_byte_write(unsigned char Daddr,unsigned char Waddr,unsigned char Data)
+ 142          {// 向任意地址写入一个字节数据函数
+ 143   1      IIC_start();// 产生起始信号
+ 144   1      IIC_write_byte(Daddr);// 写入设备地址（写）
+ 145   1      FPGA_CTR=0;
+ 146   1      IIC_Tack();// 等待设备的应答
+ 147   1      FPGA_CTR=1;
+ 148   1      IIC_write_byte(Waddr);// 写入要操作的单元地址。
+ 149   1      FPGA_CTR=0;
+ 150   1      IIC_Tack();// 等待设备的应答。
+ 151   1      FPGA_CTR=1;
+ 152   1      IIC_write_byte(Data);// 写入数据。
+ 153   1      FPGA_CTR=0;
+ 154   1      IIC_Tack();// 等待设备的应答。
+ 155   1      FPGA_CTR=1;
+ 156   1      IIC_stop();// 产生停止符号。
+ 157   1      }
+ 158          //-------------------------------------------------------------------
+ 159          unsigned char IIC_single_byte_read(unsigned char Daddr,unsigned char Waddr)
+ 160          {// 从任意地址读取一个字节数据函数
+ 161   1      unsigned char Data;//定义一个缓冲寄存器。
+ 162   1      IIC_start();// 产生起始信号
+ 163   1      IIC_write_byte(Daddr);// 写入设备地址（写）
+ 164   1      IIC_Tack();// 等待设备的应答
+ 165   1      IIC_write_byte(Waddr);// 写入要操作的单元地址。
+ 166   1      IIC_Tack();// 等待设备的应答。
+ 167   1      IIC_start();// 产生起始信号
+ 168   1      IIC_write_byte(Daddr+1);// 写入设备地址（读） 。
+ 169   1      IIC_Tack();// 等待设备的应答。
+ 170   1      Data=IIC_read_byte();// 写入数据。
+ 171   1      IIC_Tack();
+ 172   1      IIC_stop();// 产生停止符号。
+ 173   1      
+ 174   1      //------------------- 返回读取的数据--------------------
+ 175   1      return Data;// 返回读取的一个字节数据。
+ 176   1      }
+ 177          //-------------------------------------------------------------------
+ 178          void Delay1000ms()              //@11.0592MHz
+C51 COMPILER V9.51   I2C                                                                   04/19/2019 22:21:13 PAGE 4   
+
+ 179          {
+ 180   1              unsigned char i, j, k;
+ 181   1      
+ 182   1              _nop_();
+ 183   1              _nop_();
+ 184   1              i = 43;
+ 185   1              j = 6;
+ 186   1              k = 203;
+ 187   1              do
+ 188   1              {
+ 189   2                      do
+ 190   2                      {
+ 191   3                              while (--k);
+ 192   3                      } while (--j);
+ 193   2              } while (--i);
+ 194   1      }
+ 195          
+ 196          //--------------------------------------------
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    185    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      8    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       1
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

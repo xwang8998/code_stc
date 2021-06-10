@@ -1,0 +1,13 @@
+C51 COMPILER V9.51   DES                                                                   04/18/2019 16:01:35 PAGE 1   
+
+
+C51 COMPILER V9.51, COMPILATION OF MODULE DES
+OBJECT MODULE PLACED IN .\OBJ\Des.obj
+COMPILER INVOKED BY: d:\Keil_v5\C51\BIN\C51.EXE SMEC98SP\Source\Des.c LARGE BROWSE INCDIR(.\SMEC98SP\Header) DEBUG OBJEC
+                    -TEXTEND PRINT(.\LST\Des.lst) OBJECT(.\OBJ\Des.obj)
+
+line level    source
+
+*** ERROR C318 OF SMEC98SP\Source\Des.c: can't open file 'SMEC98SP\Source\Des.c'
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  1 ERROR(S)
